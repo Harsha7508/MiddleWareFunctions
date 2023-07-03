@@ -24,7 +24,7 @@ const initializeDBAndServer = async () => {
   }
 };
 initializeDBAndServer();
-
+---------------------------------------------------------------------------------------------------------------------------------------------
 const logger = (request, response, next) => {
   let jwtToken;
   const authHeader = request.headers["authorization"];
@@ -45,7 +45,7 @@ const logger = (request, response, next) => {
     });
   }
 };
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------
 app.get("/profile/", logger, async (request, response) => {
   let { username } = request;
   console.log(username);
@@ -54,7 +54,7 @@ app.get("/profile/", logger, async (request, response) => {
   const dbRes = await db.get(selectUserQuery);
   response.send(dbRes);
 });
-
+--------------------------------------------------------------------------------------------------------------------xxx--------------------------------------
 //Get Books API
 app.get("/books/", logger, async (request, response) => {
   const getBooksQuery = `
@@ -67,7 +67,7 @@ app.get("/books/", logger, async (request, response) => {
   const booksArray = await db.all(getBooksQuery);
   response.send(booksArray);
 });
-
+----------------------------------------------------------------------------------------------xxxx---------------------------------------------------------
 //Get Book API
 app.get("/books/:bookId/", async (request, response) => {
   let jwtToken;
@@ -98,7 +98,7 @@ app.get("/books/:bookId/", async (request, response) => {
     });
   }
 });
-
+-----------------------------------------------------------------------------xxxx----------------------------------------------------------------------
 //User Register API
 app.post("/users/", async (request, response) => {
   const { username, name, password, gender, location } = request.body;
@@ -124,7 +124,7 @@ app.post("/users/", async (request, response) => {
     response.send("User already exists");
   }
 });
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 //User Login API
 app.post("/login/", async (request, response) => {
   const { username, password } = request.body;
